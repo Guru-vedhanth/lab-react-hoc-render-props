@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
+import UpdatedComponent from './Parent'
 
-export default function LikePost() {
-
-  const [likePostCounter, setPostCounter] = useState(0);
-
-  const handlePostCount = ()=>{
-    setPostCounter(likePostCounter+1);
+class LikePost extends Component {
+  constructor(props) {
+    super(props)
+  
   }
-
-  return (
-    <div>
-      <button onClick={handlePostCount}>Like Post {likePostCounter}</button>
-    </div>
-  )
+  render() {
+    const {count,incrementCount}=this.props
+    return (
+      <div><button onClick={incrementCount}>LikePost - {count}</button></div>
+    )
+  }
 }
+
+export default UpdatedComponent(LikePost)

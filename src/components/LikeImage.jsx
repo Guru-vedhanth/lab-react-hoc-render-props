@@ -1,16 +1,17 @@
-import React, { useState } from 'react'
+import React, { Component } from 'react'
+import UpdatedComponent from './Parent'
 
-export default function LikeImage() {
 
-  const [likeImageCounter, setLikeImageCounter] = useState(0);
-
-  const handleLikeImageCount = ()=>{
-    setLikeImageCounter(likeImageCounter+1);
+class LikeImage extends Component {
+  constructor(props) {
+    super(props)
   }
-
-  return (
-    <div>
-      <button onClick={handleLikeImageCount}>Like Image {likeImageCounter}</button>
-    </div>
-  )
+  render() {
+    const {count,incrementCount}=this.props
+    return (
+      <div><button onClick={incrementCount}>LikeImage - {count}</button></div>
+    )
+  }
 }
+
+export default UpdatedComponent(LikeImage)
